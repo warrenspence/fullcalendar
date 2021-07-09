@@ -1,4 +1,4 @@
-
+.idea/
 .yarn/*
 !.yarn/releases
 !.yarn/plugins
