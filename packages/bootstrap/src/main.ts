@@ -9,7 +9,7 @@ BootstrapTheme.prototype.classes = {
   table: 'table-bordered', // don't attache the `table` class. we only want the borders, not any layout
   tableCellShaded: 'table-active',
   buttonGroup: 'btn-group',
-  button: 'btn btn-primary',
+  button: 'btn btn-default btn-sm',
   buttonActive: 'active',
   popover: 'popover',
   popoverHeader: 'popover-header',

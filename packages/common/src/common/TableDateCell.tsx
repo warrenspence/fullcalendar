@@ -68,7 +68,7 @@ export class TableDateCell extends BaseComponent<TableDateCellProps> { // BAD na
           >
             <div className="fc-scrollgrid-sync-inner">
               {!dayMeta.isDisabled && (
-                <a
+                <span
                   ref={innerElRef}
                   className={[
                     'fc-col-header-cell-cushion',
@@ -77,7 +77,7 @@ export class TableDateCell extends BaseComponent<TableDateCellProps> { // BAD na
                   {...navLinkAttrs}
                 >
                   {innerContent}
-                </a>
+                </span>
               )}
             </div>
           </th>

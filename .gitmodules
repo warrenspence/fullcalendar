@@ -1,6 +1,7 @@
 [submodule "packages-premium"]
 	path = packages-premium
-	url = https://github.com/fullcalendar/fullcalendar-scheduler.git
+	url = https://github.com/warrenspence/fullcalendar-scheduler.git
+	branch = master
 [submodule "packages-contrib/vue"]
 	path = packages-contrib/vue
 	url = https://github.com/fullcalendar/fullcalendar-vue.git
@@ -13,6 +14,3 @@
 [submodule "example-projects"]
 	path = example-projects
 	url = https://github.com/fullcalendar/fullcalendar-example-projects.git
-[submodule "packages-contrib/vue3"]
-	path = packages-contrib/vue3
-	url = git@github.com:fullcalendar/fullcalendar-vue.git

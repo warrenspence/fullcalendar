@@ -87,25 +87,22 @@ function parseSection(
               customButtonProps.click.call(ev.target, ev, ev.target) // TODO: use Calendar this context?
             }
           };
-          (buttonIcon = theme.getCustomButtonIconClass(customButtonProps)) ||
-            (buttonIcon = theme.getIconClass(buttonName, isRtl)) ||
-            (buttonText = customButtonProps.text)
+          buttonIcon = theme.getCustomButtonIconClass(customButtonProps) || theme.getIconClass(buttonName, isRtl)
+          buttonText = customButtonProps.text || calendarButtonTextOverrides[buttonName] || calendarButtonText[buttonName]
         } else if ((viewSpec = viewSpecs[buttonName])) {
           viewsWithButtons.push(buttonName)
 
           buttonClick = () => {
             calendarApi.changeView(buttonName)
           };
-          (buttonText = viewSpec.buttonTextOverride) ||
-              (buttonIcon = theme.getIconClass(buttonName, isRtl)) ||
-              (buttonText = viewSpec.buttonTextDefault)
+          buttonIcon = theme.getIconClass(buttonName, isRtl)
+          buttonText = viewSpec.buttonTextOverride || viewSpec.buttonTextDefault || calendarButtonTextOverrides[buttonName] || calendarButtonText[buttonName]
         } else if (calendarApi[buttonName]) { // a calendarApi method
           buttonClick = () => {
             calendarApi[buttonName]()
           };
-          (buttonText = calendarButtonTextOverrides[buttonName]) ||
-            (buttonIcon = theme.getIconClass(buttonName, isRtl)) ||
-            (buttonText = calendarButtonText[buttonName])
+          buttonIcon = theme.getIconClass(buttonName, isRtl)
+          buttonText = calendarButtonTextOverrides[buttonName] || calendarButtonText[buttonName]
             //            ^ everything else is considered default
         }
 

@@ -1,4 +1,5 @@
-
+.idea/
+springy-package/*
 .yarn/*
 !.yarn/releases
 !.yarn/plugins

@@ -36,7 +36,7 @@ export class ToolbarSection extends BaseComponent<ToolbarSectionProps> {
           <h2 className="fc-toolbar-title">{props.title}</h2>,
         )
       } else {
-        let ariaAttrs = buttonIcon ? { 'aria-label': buttonName } : {}
+        let ariaAttrs = buttonIcon && buttonText ? { 'aria-label': buttonText } : {}
 
         let buttonClasses = [`fc-${buttonName}-button`, theme.getClass('button')]
         if (buttonName === props.activeButton) {
@@ -48,6 +48,10 @@ export class ToolbarSection extends BaseComponent<ToolbarSectionProps> {
           (!props.isPrevEnabled && buttonName === 'prev') ||
           (!props.isNextEnabled && buttonName === 'next')
 
+        let isTextAndIconWanted = (buttonName === 'goToDate') || (buttonName === 'goToNextAvailable')
+        let isIconWanted = isTextAndIconWanted || buttonIcon
+        let isTextWanted = isTextAndIconWanted || buttonText && !isIconWanted
+
         children.push(
           <button
             disabled={isDisabled}
@@ -56,7 +60,9 @@ export class ToolbarSection extends BaseComponent<ToolbarSectionProps> {
             type="button"
             {...ariaAttrs}
           >
-            {buttonText || (buttonIcon ? <span className={buttonIcon} /> : '')}
+            {isIconWanted ? <i className={buttonIcon} aria-class="hidden"></i> : ''}
+            {isIconWanted && isTextWanted ? (' ' + buttonText) : ''}
+            {isTextWanted && !isIconWanted ? buttonText : ''}
           </button>,
         )
       }

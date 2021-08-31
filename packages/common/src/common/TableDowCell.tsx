@@ -61,7 +61,7 @@ export class TableDowCell extends BaseComponent<TableDowCellProps> {
             {...props.extraDataAttrs}
           >
             <div className="fc-scrollgrid-sync-inner">
-              <a
+              <span
                 className={[
                   'fc-col-header-cell-cushion',
                   props.isSticky ? 'fc-sticky' : '',
@@ -69,7 +69,7 @@ export class TableDowCell extends BaseComponent<TableDowCellProps> {
                 ref={innerElRef}
               >
                 {innerContent}
-              </a>
+              </span>
             </div>
           </th>
         )}
